@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    /* Environment Settings */
+    "target": "ES2022", // Changed from esnext for predictable production runtimes
+    "module": "NodeNext", // Keeps your NodeNext layout
+    "moduleResolution": "NodeNext", // Explicitly tied to NodeNext
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": [], // Explicitly limits global types leakage
+
+    /* File Layout & Paths */
+    "rootDir": "./src", // Fixed duplicates from your file
+    "outDir": "./dist", // Fixed duplicates from your file
+
+    /* Production Security & Optimization */
+    "sourceMap": false, // Set to false to prevent reverse-engineering source code
+    "declaration": true, // Good for libraries; can be false if it's a pure backend app
+    "declarationMap": false, // Turned off to match sourceMap removal
+    "removeComments": true, // Strips sensitive dev comments from production JS
+
+    /* Stricter Typechecking Options (Security Hardening) */
+    "strict": true, // Activates core strict safety features
+    "noUncheckedIndexedAccess": true, // Prevents prototype crashes on object lookups
+    "exactOptionalPropertyTypes": true, // Enforces accurate handling of optional properties
+    "useUnknownInCatchVariables": true, // Ensures safe runtime error catching
+
+    /* Style & Code Quality (Uncommented for Production Safety) */
+    "noImplicitReturns": true, // Ensures functions don't secretly return undefined
+    "noUnusedLocals": true, // Prevents shipping dead variables to production
+    "noUnusedParameters": true, // Prevents leftover parameter security flaws
+    "noFallthroughCasesInSwitch": true, // Eliminates accidental logic bleed in switch blocks
+    "noPropertyAccessFromIndexSignature": true, // Ensures array-like dictionaries aren't accessed via dot-notation
+
+    /* Recommended Safety Options */
+    "verbatimModuleSyntax": true, // Simplifies and secures module emission
+    "isolatedModules": true, // Ensures safe, isolated single-file builds
+    "noUncheckedSideEffectImports": true, // Catch invalid global style/script imports early
+    "moduleDetection": "force", // Enforces absolute module scoping for all files
+    "skipLibCheck": true, // Speeds up builds while ignoring third-party type bugs
+
+    /* Interop & Reliability */
+    "esModuleInterop": true, // Smooth integration with legacy CommonJS files
+    "forceConsistentCasingInFileNames": true // Prevents cross-platform file import errors (Linux vs Mac/Windows)
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
+}
